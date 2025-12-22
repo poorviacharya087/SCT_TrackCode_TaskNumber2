@@ -1,163 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<title>Stopwatch Web Application</title>
-<link rel="stylesheet" href="style.css">
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    }
-body
-{
- min-height: 100vh;
- display: flex;
- justify-content: center;
- align-items: center;
- background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
- color: #ffffff;
-}
-.container
-{
- width: 350px;
- background: rgba(255, 255, 255, 0.08);
- border-radius: 16px;
- padding: 25px;
- text-align: center;
- box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-h1 {
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-.time
-{
-  font-size: 48px;
-  margin: 20px 0;
-  font-weight: bold;
-}
-.buttons 
-{
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-button 
-{
-  flex: 1;
-  margin: 0 5px;
-  padding: 12px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #fff;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-button:hover 
-{
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-.start 
-{
-  background: #28a745;
-}
-.pause
-{
-  background: #ffc107;
-  color: #000;
-}
-.reset
-{
-  background: #dc3545;
-}
-.lap
-{
-  background: #17a2b8;
-}
-.laps
-{
-  margin-top: 20px;
-  max-height: 150px;
-  overflow-y: auto;
-  text-align: left;
-}
-.laps p 
-{
-  padding: 6px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch Web Application</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-  <h1>Stopwatch</h1>
-  <div class="time" id="display">00:00:00</div><div class="buttons">
-  <button class="start" onclick="start()">Start</button>
-  <button class="pause" onclick="pause()">Pause</button>
-</div>
-<div class="buttons">
-  <button class="lap" onclick="lap()">Lap</button>
-  <button class="reset" onclick="reset()">Reset</button>
-</div>
-<div class="laps" id="laps"></div>
-</div>  
-<script>
-let timer;
-let seconds = 0;
-let running = false;
-let lapCount = 1;
-function updateDisplay()
-{
-  let hrs = Math.floor(seconds / 3600);
-  let mins = Math.floor((seconds % 3600) / 60);
-  let secs = seconds % 60;
-  document.getElementById("display").innerText =String(hrs).padStart(2, "0") + ":" +
-  String(mins).padStart(2, "0") + ":" +
-  String(secs).padStart(2, "0");
-}
-function start() 
-{
-  if (!running) 
-  {
-    running = true;
-    timer = setInterval(() => 
-    {
-     seconds++;
-     updateDisplay();
-    }, 1000);
-  }
-}
-function pause() 
-{
-      running = false;
-      clearInterval(timer);
-}
-function reset() 
-{
-  pause();
-  seconds = 0;
-  lapCount = 1;
-  updateDisplay();
-  document.getElementById("laps").innerHTML = "";
-}
-function lap()
-{
-  if (running)
-  {
-    const lapTime = document.createElement("p");
-    lapTime.innerText = "Lap " + lapCount + " - " + document.getElementById("display").innerText;
-    document.getElementById("laps").appendChild(lapTime);
-    lapCount++;
-  }
-}
-<script src="script.js"></script>
+
+    <div class="container">
+        <h1>Stopwatch</h1>
+        <div id="display">00:00:00</div>
+
+        <div class="button-row">
+            <button id="start" class="green">Start</button>
+            <button id="pause" class="yellow">Pause</button>
+        </div>
+
+        <div class="button-row">
+            <button id="lap" class="blue">Lap</button>
+            <button id="reset" class="red">Reset</button>
+        </div>
+
+        <div id="laps"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
