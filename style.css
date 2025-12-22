@@ -1,64 +1,65 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #141e30, #243b55);
-  color: white;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+    font-family: Arial, sans-serif;
 }
+
 .container {
-  width: 350px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 25px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 35px 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 320px;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
-h1 {
-  margin-bottom: 20px;
+
+h1{
+    margin-bottom:10px;
 }
-.time {
-  font-size: 46px;
-  margin: 20px 0;
-  font-weight: bold;
+
+#display {
+    font-size: 38px;
+    margin: 20px 0;
 }
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px 0;
+
+.button-row {
+    display: flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom: 12px;
 }
+
 button {
-  flex: 1;
-  margin: 0 6px;
-  padding: 12px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.3s;
+    width: 120px;
+    padding: 10px;
+    font-size: 17px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
 }
-button:hover {
-  transform: scale(1.05);
+
+.green { background-color: #28a745; }
+.yellow { background-color: #ffc107; color: black; }
+.blue { background-color: #17a2b8; }
+.red { background-color: #dc3545; }
+
+#laps {
+    margin-top: 20px;
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
 }
-.start { background: #28a745; color: white; }
-.pause { background: #ffc107; color: black; }
-.reset { background: #dc3545; color: white; }
-.lap { background: #17a2b8; color: white; }
-.laps 
-{
-  margin-top: 15px;
-  max-height: 150px;
-  overflow-y: auto;
-  text-align: left;
-}
-.laps p {
-  padding: 6px;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  font-size: 14px;
+
+#laps p {
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin: 5px 0;
 }
